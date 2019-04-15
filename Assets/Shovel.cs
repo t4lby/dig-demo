@@ -58,6 +58,7 @@ public class Shovel : MonoBehaviour
             0));
         _rbExt.AddForce(extensionForce * ShovelExtensionForceModifier);
         _rbExt.transform.localPosition = new Vector3(_rbExt.transform.localPosition.x, 0, 0);
+        _rbRot.transform.localPosition = Vector3.zero;
         _rbExt.transform.localEulerAngles = Vector3.zero;
     }
 }
