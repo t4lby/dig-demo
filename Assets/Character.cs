@@ -20,6 +20,6 @@ public class Character : MonoBehaviour
 
     private void FixedUpdate()
     {
-        _rb.AddForce(100 * new Vector2(_xInput, _yInput));
+        _rb.AddForce(300 * new Vector2(_xInput, _yInput));
     }
 }

@@ -15,6 +15,14 @@ public class Shovel : MonoBehaviour
     /// The amount of force used to extend the shovel.
     /// </summary>
     public float ShovelExtensionForceModifier = 100f;
+    /// <summary>
+    /// The amount of torque used in rotating the shovel.
+    /// </summary>
+    public float TorqueModifier = 100f;
+    /// <summary>
+    /// Torque will max out to stop shovel moving through dirt.
+    /// </summary>
+    public float MaxTorque = 100f;
 
     Rigidbody2D _rbRot;
     Rigidbody2D _rbExt;
@@ -46,10 +54,22 @@ public class Shovel : MonoBehaviour
             }
             else
             {
-                angle = Mathf.Rad2Deg * Mathf.Atan(_yInput / _xInput)
-                    + (_xInput < 0f ? 1f : 0f) * 180f;
+                angle = Mathf.Rad2Deg * Mathf.Atan(_yInput / _xInput);
+                    //+ (_xInput < 0f ? 1f : 0f) * 180f;
+                if (_xInput < 0)
+                {
+                    angle = (_yInput < 0f ? -1f : 1f) * 180 + angle;
+                }
             }
+            //Debug.Log(cleanLocalAngle);
             _rbRot.MoveRotation(angle);
+            /*float cleanLocalAngle = _rbRot.transform.localEulerAngles.z > 180 ? _rbRot.transform.localEulerAngles.z - 360 : _rbRot.transform.localEulerAngles.z;
+            float torque = (angle - cleanLocalAngle) * TorqueModifier;
+            if (Mathf.Abs(torque) > MaxTorque)
+            {
+                torque = torque > 0 ? MaxTorque : -MaxTorque;
+            }
+            _rbRot.AddTorque(torque);*/
         }
         float extension = ShovelRetractedDistance +
             new Vector2(_xInput, _yInput).magnitude * (ShovelExtendedDistance - ShovelRetractedDistance);
