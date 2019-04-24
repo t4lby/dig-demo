@@ -38,8 +38,8 @@ public class Shovel : MonoBehaviour
 	void Update () 
     {
         //Get input from r_horizontal and r_vertical axis.s
-        _xInput = Input.GetAxis("Horizontal");
-        _yInput = Input.GetAxis("Vertical");
+        _xInput = Input.GetAxis("Horizontal_" + GetComponentInParent<Character>().PlayerNumber);
+        _yInput = Input.GetAxis("Vertical_" + GetComponentInParent<Character>().PlayerNumber);
     }
 
     private void FixedUpdate()

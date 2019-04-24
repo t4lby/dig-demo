@@ -161,7 +161,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 20
+  orthographic size: 14.860017
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -501,6 +501,7 @@ MonoBehaviour:
   JumpVelocity: 12
   MoveVelocity: 10
   HealthBar: {fileID: 1638913343}
+  PlayerNumber: 2
 --- !u!4 &973575533
 Transform:
   m_ObjectHideFlags: 0
@@ -917,8 +918,8 @@ MonoBehaviour:
   DirtSprites:
   - {fileID: 21300000, guid: e64e71e5ccd0f4545b19c1c7831ea2b0, type: 3}
   - {fileID: 21300000, guid: 5b302cfdd124e4645bd7f0c4359a351a, type: 3}
-  Width: 300
-  Height: 170
+  Width: 200
+  Height: 100
   PixelHeight: 0.25
   PixelWidth: 0.25
   Characters: []
@@ -1201,6 +1202,7 @@ MonoBehaviour:
   JumpVelocity: 12
   MoveVelocity: 10
   HealthBar: {fileID: 521606180}
+  PlayerNumber: 1
 --- !u!50 &1993738095
 Rigidbody2D:
   serializedVersion: 4

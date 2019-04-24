@@ -8,6 +8,7 @@ public class Character : MonoBehaviour
     public float JumpVelocity;
     public float MoveVelocity;
     public GameObject HealthBar;
+    public string PlayerNumber;
     Rigidbody2D _rb;
     float _xInput, _yInput;
     bool _jump;
@@ -23,9 +24,9 @@ public class Character : MonoBehaviour
 
     private void Update()
     {
-        _xInput = Input.GetAxis("L_Horizontal");
-        _yInput = Input.GetAxis("L_Vertical");
-        _jump = Input.GetKey(KeyCode.Space);
+        _xInput = Input.GetAxis("L_Horizontal_" + PlayerNumber);
+        _yInput = Input.GetAxis("L_Vertical_" + PlayerNumber);
+        _jump = Input.GetButton("Jump_" + PlayerNumber);
         if (_health < 0)
         {
             Destroy(this.gameObject);
