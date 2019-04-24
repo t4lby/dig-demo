@@ -11,7 +11,7 @@ public class Map : MonoBehaviour
     public int Height;
     public float PixelHeight;
     public float PixelWidth;
-
+    public GameObject[] Characters;
 
     private bool[,] _bitMap;
     private GameObject[,] _dirtMap;
@@ -23,7 +23,8 @@ public class Map : MonoBehaviour
 
     private void Start()
     {
-        _bitMap = MapGenerators.Circle(Width, Height, 15, new Vector2(Width / 2, Height / 2));
+        _bitMap = MapGenerators.Circle(Width, Height, 15, new Vector2(Width / 4, Height / 2));
+        _bitMap = MapGenerators.Circle(Width, Height, 15, new Vector2(Width * 3 / 4, Height / 2), _bitMap);
         _dirtMap = new GameObject[Width, Height];
 
         //Set the bitmap to true, would load some pre config or generate in practice.
@@ -76,7 +77,7 @@ public class Map : MonoBehaviour
         _bitMap[a, b] = false;
 
         //Asses whether surrounding squares need replacing with a corner.
-
+        /*
         if (b > 0 && !_bitMap[a, b - 1])
         {
             if (a > 0 && !_bitMap[a - 1, b - 1])
@@ -128,12 +129,14 @@ public class Map : MonoBehaviour
                 // replace bottom square with triangle se
                 ChangeToTriange(_dirtMap[a, b + 1], SW_ROTATION);
             }
-        }
+        }*/
     }
 
     public void AddDirt(int a, int b)
     {
-
+        _dirtMap[a, b].GetComponent<Collider2D>().enabled = true;
+        _dirtMap[a, b].GetComponent<SpriteRenderer>().enabled = true;
+        _bitMap[a, b] = true;
     }
 
     private void ChangeToTriange(GameObject dirt, float rotation)

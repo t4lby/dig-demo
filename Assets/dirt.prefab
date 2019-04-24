@@ -22,9 +22,10 @@ GameObject:
   - component: {fileID: 212041619905267900}
   - component: {fileID: 50455345201290826}
   - component: {fileID: 58973260593886668}
+  - component: {fileID: 114210675837452876}
   m_Layer: 0
   m_Name: dirt
-  m_TagString: Untagged
+  m_TagString: dirt
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -77,6 +78,18 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.1
+--- !u!114 &114210675837452876
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1947383244489026}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56cec59e0348346c8b78e130cd042aa0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  FramesUntilSettle: 50
 --- !u!212 &212041619905267900
 SpriteRenderer:
   m_ObjectHideFlags: 1
