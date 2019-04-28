@@ -331,7 +331,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 5856f31ae23264e04aa0ba0d3bb3778b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 848e120193588114b8bcd381bda8f02b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -378,7 +378,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2, y: 0.19}
+    oldSize: {x: 2.11, y: 0.58}
     newSize: {x: 2, y: 0.19}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -414,7 +414,7 @@ CircleCollider2D:
   m_GameObject: {fileID: 973575528}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 6200000, guid: 39f7790b162634f14902d69b50bc0991, type: 2}
+  m_Material: {fileID: 6200000, guid: 5e3695981ca17da4cb3a0a0c8e0975ea, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -499,9 +499,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   JumpVelocity: 12
-  MoveVelocity: 10
+  MoveSpeed: 7
+  MoveAccForce: 700
+  KnockBackForce: 10000
   HealthBar: {fileID: 1638913343}
   PlayerNumber: 2
+  Shovel: {fileID: 1196163995}
 --- !u!4 &973575533
 Transform:
   m_ObjectHideFlags: 0
@@ -640,7 +643,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2, y: 0.19}
+    oldSize: {x: 2.11, y: 0.58}
     newSize: {x: 2, y: 0.19}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -704,7 +707,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 5856f31ae23264e04aa0ba0d3bb3778b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 848e120193588114b8bcd381bda8f02b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1200,9 +1203,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   JumpVelocity: 12
-  MoveVelocity: 10
+  MoveSpeed: 7
+  MoveAccForce: 1000
+  KnockBackForce: 10000
   HealthBar: {fileID: 521606180}
   PlayerNumber: 1
+  Shovel: {fileID: 1704243160}
 --- !u!50 &1993738095
 Rigidbody2D:
   serializedVersion: 4
@@ -1277,7 +1283,7 @@ CircleCollider2D:
   m_GameObject: {fileID: 1993738092}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 6200000, guid: 39f7790b162634f14902d69b50bc0991, type: 2}
+  m_Material: {fileID: 6200000, guid: 5e3695981ca17da4cb3a0a0c8e0975ea, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0

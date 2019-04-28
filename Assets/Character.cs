@@ -6,11 +6,15 @@ using UnityEngine.UI;
 public class Character : MonoBehaviour
 {
     public float JumpVelocity;
-    public float MoveVelocity;
+    public float MoveSpeed;
+    public float MoveAccForce;
+    public float KnockBackForce;
     public GameObject HealthBar;
     public string PlayerNumber;
+    public Shovel Shovel;
     Rigidbody2D _rb;
-    float _xInput, _yInput;
+    float _xInput;
+    float _digInput;
     bool _jump;
     bool _collisionBelow;
     int _framesSinceNoCollision;
@@ -25,8 +29,9 @@ public class Character : MonoBehaviour
     private void Update()
     {
         _xInput = Input.GetAxis("L_Horizontal_" + PlayerNumber);
-        _yInput = Input.GetAxis("L_Vertical_" + PlayerNumber);
+        _digInput = Input.GetAxis("L_Trig_" + PlayerNumber);
         _jump = Input.GetButton("Jump_" + PlayerNumber);
+        Shovel.ParticleRetention = _digInput * 0.7f + 0.5f;
         if (_health < 0)
         {
             Destroy(this.gameObject);
@@ -36,8 +41,11 @@ public class Character : MonoBehaviour
 
     private void FixedUpdate()
     {
-        //_rb.AddForce(MoveForce * new Vector2(_xInput, _yInput));
-        _rb.velocity = new Vector2(_xInput * MoveVelocity, (_jump && _collisionBelow) ? JumpVelocity : _rb.velocity.y);
+        if (Mathf.Abs(_rb.velocity.x) < Mathf.Abs(_xInput * MoveSpeed))
+        {
+            _rb.AddForce(new Vector2(_xInput * MoveAccForce, 0));
+        }
+        _rb.velocity = new Vector2(_rb.velocity.x, (_jump && _collisionBelow) ? JumpVelocity : _rb.velocity.y);
         if (_framesSinceNoCollision > 5)
         {
             _collisionBelow = false;
@@ -67,8 +75,9 @@ public class Character : MonoBehaviour
     {
         if (collision.tag == "shovel" && collision.GetComponentInParent<Character>() != this)
         {
-            _health -= 3f;
-            // Turn sprite color to red.
+            _health -= 1f;
+            //knockback
+            this.GetComponent<Rigidbody2D>().AddForce((Vector2)(transform.position - collision.transform.position).normalized * KnockBackForce);
         }
     }
 }

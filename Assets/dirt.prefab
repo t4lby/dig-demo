@@ -90,6 +90,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   FramesUntilSettle: 50
+  FramesUntilColliderTurnOn: 10
 --- !u!212 &212041619905267900
 SpriteRenderer:
   m_ObjectHideFlags: 1

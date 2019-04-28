@@ -134,9 +134,12 @@ public class Map : MonoBehaviour
 
     public void AddDirt(int a, int b)
     {
-        _dirtMap[a, b].GetComponent<Collider2D>().enabled = true;
-        _dirtMap[a, b].GetComponent<SpriteRenderer>().enabled = true;
-        _bitMap[a, b] = true;
+        if (0 <= a && 0 <= b && a < Width && b < Height)
+        {
+            _dirtMap[a, b].GetComponent<Collider2D>().enabled = true;
+            _dirtMap[a, b].GetComponent<SpriteRenderer>().enabled = true;
+            _bitMap[a, b] = true;
+        }
     }
 
     private void ChangeToTriange(GameObject dirt, float rotation)

@@ -14,10 +14,11 @@ public class Dirt : MonoBehaviour
         {
             //Also adjust bit map in map controller.
             Map.RemoveDirt(MapIndexA, MapIndexB);
-            GetComponent<Collider2D>().enabled = false;
-            var spawn = Instantiate(DirtParticlePrefab, transform.position, Quaternion.identity);
-            spawn.GetComponent<Rigidbody2D>().velocity = (collision.transform.position - transform.position) * 50;
-
+            if (Random.Range(0f, 1f) < collision.GetComponentInParent<Shovel>().ParticleRetention)
+            {
+                var spawn = Instantiate(DirtParticlePrefab, transform.position, Quaternion.identity);
+                spawn.GetComponent<Rigidbody2D>().velocity = collision.GetComponentInParent<Shovel>().ParticleFlyVelocity;
+            }
         }
     }
 }

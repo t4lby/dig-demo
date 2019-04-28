@@ -1,0 +1,8 @@
+DEVLIST:
+
+- Character knockback. / 
+- Fix amount of sprites on screen slowness
+- Visual damage indicator (turning red)
+- Particles do in direction of dig.
+- Capture the flag game mode with respawn and timer and score.
+
